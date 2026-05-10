@@ -264,16 +264,16 @@ function CelebrationPage({ onComplete, musicPlayerRef }) {
   };
 
   return (
-    <div classduhita={`celebration-page ${lightsOn ? "lights-on" : ""}`}>
+    <div classname={`celebration-page ${lightsOn ? "lights-on" : ""}`}>
       {/* Confetti Effect */}
       {showConfetti && <Confetti />}
 
       {/* Floating hearts background */}
-      <div classduhita="floating-hearts-bg">
+      <div classname="floating-hearts-bg">
         {heartPositions.map((pos, i) => (
           <div
             key={i}
-            classduhita="heart-float"
+            classname="heart-float"
             style={{
               left: `${pos.left}%`,
               animationDelay: `${pos.delay}s`,
@@ -287,17 +287,17 @@ function CelebrationPage({ onComplete, musicPlayerRef }) {
 
       {/* QNA Slides Section */}
       {!showButtons && (
-        <div classduhita="slides-container">
-          <div classduhita="slide-content">
-            <div classduhita="slide-icon">{slides[currentSlide].icon}</div>
-            <h2 classduhita="slide-text">{slides[currentSlide].text}</h2>
+        <div classname="slides-container">
+          <div classname="slide-content">
+            <div classname="slide-icon">{slides[currentSlide].icon}</div>
+            <h2 classname="slide-text">{slides[currentSlide].text}</h2>
 
             {slides[currentSlide].type === "question" ? (
-              <div classduhita="question-options">
+              <div classname="question-options">
                 {slides[currentSlide].options.map((option, index) => (
                   <button
                     key={index}
-                    classduhita={`option-button ${
+                    classname={`option-button ${
                       option.value === "yes" ? "yes-button" : "no-button"
                     }`}
                     onClick={() => handleAnswer(option.value)}
@@ -307,18 +307,18 @@ function CelebrationPage({ onComplete, musicPlayerRef }) {
                 ))}
               </div>
             ) : (
-              <button classduhita="next-button" onClick={handleNext}>
+              <button classname="next-button" onClick={handleNext}>
                 {currentSlide < slides.length - 1 ? "Next" : "Let's Go! 🎉"}
               </button>
             )}
           </div>
 
           {/* Progress dots */}
-          <div classduhita="slide-progress">
+          <div classname="slide-progress">
             {slides.map((_, index) => (
               <div
                 key={index}
-                classduhita={`progress-dot ${
+                classname={`progress-dot ${
                   index === currentSlide ? "active" : ""
                 } ${index < currentSlide ? "completed" : ""}`}
               />
@@ -331,17 +331,17 @@ function CelebrationPage({ onComplete, musicPlayerRef }) {
       {showButtons && (
         <>
           {/* Buttons Section - At the TOP */}
-          <div classduhita="celebration-buttons">
-            <h2 classduhita="celebration-title">Let's Celebrate! 🎉</h2>
-            <p classduhita="celebration-subtitle">
+          <div classname="celebration-buttons">
+            <h2 classname="celebration-title">Let's Celebrate! 🎉</h2>
+            <p classname="celebration-subtitle">
               Click the buttons to decorate
             </p>
 
-            <div classduhita="buttons-grid">
+            <div classname="buttons-grid">
               {/* Lights Button - Shows first, hides after click */}
               {showLightsButton && !activatedButtons.lights && (
                 <button
-                  classduhita="action-button lights-button"
+                  classname="action-button lights-button"
                   data-button="lights"
                   onClick={() => handleButtonClick("lights")}
                 >
@@ -352,7 +352,7 @@ function CelebrationPage({ onComplete, musicPlayerRef }) {
               {/* Music Button - Shows after lights, hides after click */}
               {showMusicButton && !activatedButtons.music && (
                 <button
-                  classduhita="action-button music-button"
+                  classname="action-button music-button"
                   data-button="music"
                   onClick={() => handleButtonClick("music")}
                 >
@@ -363,7 +363,7 @@ function CelebrationPage({ onComplete, musicPlayerRef }) {
               {/* Decorate Button - Shows after music is clicked, hides after click */}
               {showDecorateButton && !activatedButtons.decorate && (
                 <button
-                  classduhita="action-button decorate-button"
+                  classname="action-button decorate-button"
                   data-button="decorate"
                   onClick={() => handleButtonClick("decorate")}
                 >
@@ -374,7 +374,7 @@ function CelebrationPage({ onComplete, musicPlayerRef }) {
               {/* Balloons Button - Shows after decorate is clicked, hides after click */}
               {showBalloonsButton && !activatedButtons.balloons && (
                 <button
-                  classduhita="action-button balloons-button"
+                  classname="action-button balloons-button"
                   data-button="balloons"
                   onClick={() => handleButtonClick("balloons")}
                 >
@@ -385,7 +385,7 @@ function CelebrationPage({ onComplete, musicPlayerRef }) {
               {/* Message Button - Shows after all decorations */}
               {showMessageButton && (
                 <button
-                  classduhita="action-button message-button"
+                  classname="action-button message-button"
                   data-button="message"
                   onClick={() => handleButtonClick("message")}
                 >
@@ -396,14 +396,14 @@ function CelebrationPage({ onComplete, musicPlayerRef }) {
           </div>
 
           {/* Decorations Container - BELOW buttons in normal flow */}
-          <div classduhita="decorations-container">
+          <div classname="decorations-container">
             {/* Twinkling Lights - when lights button is clicked - AT THE VERY TOP */}
             {activatedButtons.lights && (
-              <div classduhita="decoration-lights string-lights">
+              <div classname="decoration-lights string-lights">
                 {[...Array(20)].map((_, i) => (
                   <div
                     key={i}
-                    classduhita={`light light-${i % 4}`}
+                    classname={`light light-${i % 4}`}
                     style={{
                       left: `${5 + i * 4.5}%`,
                       animationDelay: `${i * 0.1}s`,
@@ -415,8 +415,8 @@ function CelebrationPage({ onComplete, musicPlayerRef }) {
 
             {/* Bunting decoration - second row */}
             {activatedButtons.decorate && (
-              <div classduhita="decoration-decorate bunting">
-                <div classduhita="bunting-string">
+              <div classname="decoration-decorate bunting">
+                <div classname="bunting-string">
                   {[
                     "H",
                     "a",
@@ -433,7 +433,7 @@ function CelebrationPage({ onComplete, musicPlayerRef }) {
                     "a",
                     "y",
                   ].map((letter, i) => (
-                    <div key={i} classduhita={`bunting-flag flag-${i % 3}`}>
+                    <div key={i} classname={`bunting-flag flag-${i % 3}`}>
                       {letter}
                     </div>
                   ))}
@@ -443,39 +443,39 @@ function CelebrationPage({ onComplete, musicPlayerRef }) {
 
             {/* Cake decoration - center */}
             {activatedButtons.music && (
-              <div classduhita="decoration-music cake-container">
-                <div classduhita="cake">
-                  <div classduhita="cake-layer layer-3"></div>
-                  <div classduhita="cake-layer layer-2"></div>
-                  <div classduhita="cake-layer layer-1"></div>
-                  <div classduhita="cake-candles">
+              <div classname="decoration-music cake-container">
+                <div classname="cake">
+                  <div classname="cake-layer layer-3"></div>
+                  <div classname="cake-layer layer-2"></div>
+                  <div classname="cake-layer layer-1"></div>
+                  <div classname="cake-candles">
                     {[...Array(5)].map((_, i) => (
-                      <div key={i} classduhita="candle">
-                        <div classduhita="flame"></div>
-                        <div classduhita="wick"></div>
+                      <div key={i} classname="candle">
+                        <div classname="flame"></div>
+                        <div classname="wick"></div>
                       </div>
                     ))}
                   </div>
-                  <div classduhita="cake-decoration flower-decoration"></div>
+                  <div classname="cake-decoration flower-decoration"></div>
                 </div>
               </div>
             )}
 
             {/* Balloons decoration - bottom */}
             {activatedButtons.balloons && (
-              <div classduhita="decoration-balloons">
+              <div classname="decoration-balloons">
                 {[...Array(8)].map((_, i) => (
                   <div
                     key={i}
-                    classduhita={`balloon balloon-${i % 3}`}
+                    classname={`balloon balloon-${i % 3}`}
                     style={{
                       left: `${8 + i * 12}%`,
                       animationDelay: `${i * 0.2}s`,
                       animationDuration: `${4 + (i % 3) * 0.5}s`,
                     }}
                   >
-                    <div classduhita="balloon-body"></div>
-                    <div classduhita="balloon-string"></div>
+                    <div classname="balloon-body"></div>
+                    <div classname="balloon-string"></div>
                   </div>
                 ))}
               </div>
